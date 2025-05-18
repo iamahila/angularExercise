@@ -1,0 +1,9 @@
+.normal{
+    color: green;
+}
+.error{
+    color: red;
+}
+.special{
+    font-style : italic;
+}

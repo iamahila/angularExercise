@@ -1,0 +1,13 @@
+<div class="'todo-table">
+    <input [class.hello]="hasError" type='text' value = 'Ahila' />
+    <input [ngClass]="messageClasses" type='text' value = 'Ahila' />
+
+    <h2 [style.color]="'orange'">Style Binding</h2>
+
+    <h2 [style.color]="hasError ? 'red' : 'green'">Style Binding 2</h2>
+
+
+    <h2 [ngStyle]="styleClasses">Style Binding 2</h2>
+
+
+</div>
