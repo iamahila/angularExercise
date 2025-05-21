@@ -1,4 +1,5 @@
 <div class ='header'>
   <h1>Todo Application</h1>
 </div>
-<app-todo-table></app-todo-table>
+<h1>{{message}}</h1>
+<app-todo-table [parentData]="name" (childEvent)="checkEvent($event)"></app-todo-table>

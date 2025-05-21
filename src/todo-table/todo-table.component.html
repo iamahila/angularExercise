@@ -1,5 +1,7 @@
 <div class="'todo-table">
+
     <input [class.hello]="hasError" type='text' value = 'Ahila' />
+
     <input [ngClass]="messageClasses" type='text' value = 'Ahila' />
 
     <h2 [style.color]="'orange'">Style Binding</h2>
@@ -9,5 +11,82 @@
 
     <h2 [ngStyle]="styleClasses">Style Binding 2</h2>
 
+    <button (click)="onClick()">Greet</button>
+    
+
+    <button (click)="greeting='Greet from Html'">Greet Direct</button>
+
+    {{greeting}}
+
+
+    <input type ="text" #myInput>
+    <button (click)="logMessage(myInput.value)">Click</button>
+
+    <!-- Two way binding -->
+
+    <input type ="text" [(ngModel)]="name">
+
+    {{name}}
+
+    <!-- ngIf -->
+    <h2 *ngIf="displayName">Code Evolution</h2>
+
+    <!-- ngif and else -->
+
+    <h2 *ngIf="displayName; else elseBlock">Code Evolution</h2>
+
+    <ng-template #elseBlock>
+        <h2>Name is hidden</h2>
+    </ng-template>
+
+    <!-- ngIf, then, else -->
+
+    <div *ngIf="displayName; then thenBlock; else elseBlock1"></div>
+    <ng-template #thenBlock>
+        <h2>Then Block</h2>
+    </ng-template>
+    <ng-template #elseBlock1>
+        <h2>Else Block</h2>
+    </ng-template>
+
+    <!-- ngswitch -->
+     <div [ngSwitch]="color">
+        <div *ngSwitchCase="'red'">You picked red color</div>
+        <div *ngSwitchCase="'blue'">You picked blue color</div>
+        <div *ngSwitchCase="'green'">You picked green color</div>
+        <div *ngSwitchDefault>Pick again</div>
+     </div>
+
+     <div *ngFor="let color of colors; first as f; last as l; odd as o; even as e; index as i">
+        <h2>First: {{f}} index: {{i}} value: {{color}} last: {{l}} odd: {{o}} even: {{e}}</h2>
+     </div>
+
+     <!-- component interaction parent to child -->
+      {{parentData}}
+
+      <!-- pipe -->
+     <h2>{{name | slice:3}}</h2>
+
+     <h2>{{5.678 | number:'1.2-3'}} </h2>
+    <h2>{{5.678 | number:'3.4-5'}} </h2>
+     <h2>{{5.678 | number:'3.1-2'}} </h2>
+
+
+    <h2>{{0.25 | percent}}</h2>
+    <h2>{{0.25 | currency}}</h2>
+    <h2>{{0.25 | currency: 'GBP'}}</h2>
+    <h2>{{0.25 | currency: 'EUR': 'code'}}</h2>
+
+    <h2>{{date}}</h2>
+    <h2>{{date | date: 'short' }}</h2>
+    <h2>{{date | date: 'shortDate'}}</h2>
+    <h2>{{date | date: 'shortTime'}}</h2>
+
+    <!-- Medium and Long date & time also there -->
+
+    <!-- custom pipe -->
+    <h2>{{name | test:3}}</h2>
+
+    
 
 </div>

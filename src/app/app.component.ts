@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'exercise';
+  name='Ahila Karthick Nila';
+  message: string;
+
+  checkEvent(message: string){
+    this.message = message;
+  }
 }
