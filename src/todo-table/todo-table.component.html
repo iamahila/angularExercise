@@ -87,6 +87,16 @@
     <!-- custom pipe -->
     <h2>{{name | test:3}}</h2>
 
-    
+    <!-- DI -->
+     <div>
+        <h2 *ngFor="let emp of employeeList">{{emp.name}}</h2>
+     </div>
+
+     <form>
+        <input type="text" (input)="getInputData($event)"/>
+        <button class="btn btn-primary" (click)="passEvent($event)">Submit</button>
+     </form>
+
+     <div [ngClass]="isSpecial ? 'test' : 'test1'"></div>
 
 </div>

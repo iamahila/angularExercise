@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { EmployeeService } from 'src/app/services/employee.service';
+import { Employee } from 'src/app/models/employee.model';
 
 @Component({
   selector: 'app-todo-table',
@@ -16,6 +18,7 @@ export class TodoTableComponent implements OnInit{
   color = 'yellow';
   colors: string[] = ['red', 'blue', 'green'];
   date = new Date();
+  employeeList:Employee[];
   @Input() parentData: string; 
   @Output() childEvent = new EventEmitter<string>();
   messageClasses = {
@@ -33,13 +36,26 @@ export class TodoTableComponent implements OnInit{
     throw new Error('Method not implemented.');
   }
 
+  constructor(private employeeService: EmployeeService){
+
+  }
+
   onClick(){
     this.greeting = 'Hello';
     this.childEvent.emit('New event emitted');
+    this.employeeList = this.employeeService.getEmployees();
   }
 
   logMessage(value: string){
     console.log(value);
+  }
+
+  passEvent(event: any){
+    console.log("Value is: " + event.target.value);
+  }
+
+  getInputData(event: Event){
+    console.log((event.target as HTMLInputElement).value);
   }
   
 
